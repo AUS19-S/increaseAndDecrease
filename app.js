@@ -1,25 +1,51 @@
+const body = document.querySelector("body");
+
 document.addEventListener("DOMContentLoaded", ()=>{
-    const plus = document.getElementById("increase");
-    const minus = document.getElementById("decrease");
-    const result =  document.getElementById("result");
-
+    let minus = document.getElementById("decrease");
+    let plus = document.getElementById("increase");
+    let result = document.getElementById("result");
+    let reset = document.getElementById("reset");
     let number = 0;
-
-    plus.addEventListener("click", ()=>{
-        number ++;
-        result.innerHTML = number;
-        if(number > 10){
-            result.style.backgroundColor = "yellow"
-            alert("The number is growing up.")
-        }
-    });
 
     minus.addEventListener("click", ()=>{
         number --;
         result.textContent = number;
-        if(number < -10){
-            result.style.backgroundColor = "grey";
-            alert("Attention! The number is going down.")
+        let numero = number;
+        switch(numero){
+            case -5:
+                alert("you're going down");
+                body.style.backgroundColor ="grey"
+                break;
+            case -10:
+                alert("Try to overcome this situation");
+                body.style.backgroundColor ="black";
+                result.style.color = "white"
+                break;    
         }
+    });
+
+    reset.addEventListener("click", ()=>{
+        number = 0;
+        result.textContent = number;
+        body.style.backgroundColor = "white";
+        result.style.color = "black";
     })
+
+    plus.addEventListener("click", ()=>{
+        number ++;
+        result.textContent = number;
+
+        let numero = number;
+        switch(numero){
+            case 5:
+                alert("Good Job!");
+                body.style.backgroundColor ="green"
+                break;
+            case 10:
+                alert("That's enough!");
+                body.style.backgroundColor ="gold"  
+        }
+    });
+
+     
 });
